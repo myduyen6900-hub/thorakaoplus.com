@@ -8,7 +8,7 @@
    ========================================================================= */
 
   :root{
-    --cream:#FFF8E1;
+    /* rgb(247, 248, 240):#FFF8E1; */
     --paper:#FFFDF6;
     --ink:#2B2018;
     --ink-soft:#5B4E40;
@@ -27,7 +27,7 @@
   *,*::before,*::after{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0; background:var(--cream); color:var(--ink);
+    margin:0; background:var(rgb(247, 248, 240)); color:var(--ink);
     font-family:var(--body); font-size:16px; line-height:1.55;
     -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
@@ -52,7 +52,7 @@
 
   /* ---------- Announcement ---------- */
   .announce{
-    /* background:var(--ink); color:var(--cream); */
+    /* background:var(--ink); color:var(rgb(247, 248, 240)); */
     background:var(--ink); color: rgb(247, 248, 240);
     font-family:var(--mono); font-size:11px; letter-spacing:.06em;
     text-align:center; padding:8px 12px; position:relative; z-index:50;
@@ -61,7 +61,7 @@
   /* ---------- Nav ---------- */
   header.site{
     position:sticky; top:0; z-index:40;
-    background:var(--cream); border-bottom:1px solid var(--line);
+    background:var(rgb(247, 248, 240)); border-bottom:1px solid var(--line);
     transition:background .3s ease, border-color .3s ease;
   }
   nav.main{display:flex; align-items:center; justify-content:space-between; padding:14px 20px;}
@@ -94,7 +94,7 @@
 
   /* ---------- Giant wordmark banner (signature element) ---------- */
   .wordmark-band{
-    overflow:hidden; background:var(--cream); border-bottom:1px solid var(--line);
+    overflow:hidden; background:var(rgb(247, 248, 240)); border-bottom:1px solid var(--line);
     padding:2vw 0; position:relative;
   }
   .wordmark-band .marquee-track{
@@ -114,7 +114,7 @@
 
   /* ---------- HERO (full-bleed, dark, overlay copy like Topicals) ---------- */
   .hero{
-    position:relative; min-height:78svh; overflow:hidden; color:var(--cream);
+    position:relative; min-height:78svh; overflow:hidden; color:var(rgb(247, 248, 240));
     display:flex; align-items:flex-end;
   }
   @media(min-width:900px){.hero{min-height:88svh;}}
@@ -164,12 +164,12 @@
     border:1px solid var(--ink); transition:transform .18s var(--ease), background .18s ease, color .18s ease;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--cream); color:var(--ink); border-color:var(--cream);}
-  .btn-primary:hover{background:var(--betel); color:var(--cream); border-color:var(--betel);}
-  .btn-outline-light{background:transparent; color:var(--cream); border-color:rgba(255,248,225,0.6);}
-  .btn-outline-light:hover{background:var(--cream); color:var(--ink);}
+  .btn-primary{background:var(rgb(247, 248, 240)); color:var(--ink); border-color:var(rgb(247, 248, 240));}
+  .btn-primary:hover{background:var(--betel); color:var(rgb(247, 248, 240)); border-color:var(--betel);}
+  .btn-outline-light{background:transparent; color:var(rgb(247, 248, 240)); border-color:rgba(255,248,225,0.6);}
+  .btn-outline-light:hover{background:var(rgb(247, 248, 240)); color:var(--ink);}
   .btn-ghost{background:transparent; color:var(--ink); border-color:var(--ink);}
-  .btn-ghost:hover{background:var(--ink); color:var(--cream);}
+  .btn-ghost:hover{background:var(--ink); color:var(rgb(247, 248, 240));}
 
   .hero-bar{
     position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center;
@@ -222,14 +222,14 @@
   @media(min-width:1000px){.card{flex-basis:23%;}}
   .card-media{
     aspect-ratio:4/5; position:relative; display:flex; align-items:center; justify-content:center;
-    background:var(--cream); border-bottom:1px solid var(--line); overflow:hidden;
+    background:var(rgb(247, 248, 240)); border-bottom:1px solid var(--line); overflow:hidden;
   }
   .card-media svg{width:52%; height:52%; transition:opacity .35s ease, transform .35s ease;}
   .card-media .svg-alt{position:absolute; opacity:0; transform:scale(1.08) rotate(6deg);}
   .card:hover .card-media .svg-main{opacity:0; transform:scale(.92);}
   .card:hover .card-media .svg-alt{opacity:1; transform:scale(1) rotate(0deg);}
   .card-badge{
-    position:absolute; top:10px; left:10px; background:var(--betel); color:var(--cream);
+    position:absolute; top:10px; left:10px; background:var(--betel); color:var(rgb(247, 248, 240));
     font-family:var(--mono); font-size:10px; letter-spacing:.04em; text-transform:uppercase;
     padding:4px 8px; border-radius:2px; z-index:2;
   }
@@ -240,7 +240,7 @@
   .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:8px;}
   .price{font-family:var(--mono); font-weight:700; font-size:15px;}
   .add-btn{
-    font-weight:700; font-size:12px; letter-spacing:.02em; background:var(--ink); color:var(--cream);
+    font-weight:700; font-size:12px; letter-spacing:.02em; background:var(--ink); color:var(rgb(247, 248, 240));
     border:none; border-radius:2px; padding:9px 14px; cursor:pointer; transition:background .2s ease;
   }
   .add-btn:hover{background:var(--betel);}
@@ -250,7 +250,7 @@
     width:38px;height:38px; border-radius:50%; border:1px solid var(--ink); background:transparent;
     display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s ease,color .2s ease;
   }
-  .rail-nav button:hover{background:var(--ink); color:var(--cream);}
+  .rail-nav button:hover{background:var(--ink); color:var(rgb(247, 248, 240));}
   .progress-track{flex:1; height:2px; background:var(--line); position:relative; max-width:340px;}
   .progress-fill{position:absolute; left:0; top:0; height:100%; background:var(--ink); width:22%; transition:width .15s ease;}
 
@@ -263,7 +263,7 @@
       radial-gradient(circle at 20% 80%, rgba(75,107,79,0.28), transparent 50%),
       var(--ink);
   }
-  .editorial-copy{position:relative; z-index:2; padding:0 20px 48px; color:var(--cream); max-width:520px;}
+  .editorial-copy{position:relative; z-index:2; padding:0 20px 48px; color:var(rgb(247, 248, 240)); max-width:520px;}
   @media(min-width:900px){.editorial-copy{padding:0 48px 64px;}}
   .editorial-copy h2{font-family:var(--display); font-weight:600; font-size:clamp(26px,4.2vw,42px); margin:0 0 16px;}
   .editorial-copy h2 em{font-style:italic; color:var(--gold);}
@@ -272,7 +272,7 @@
     background:rgba(255,253,246,0.96); border-radius:3px; padding:16px; display:flex; gap:12px;
   }
   @media(min-width:900px){.callout-card{left:48px; top:48px;}}
-  .callout-media{width:64px; height:80px; flex-shrink:0; background:var(--cream); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
+  .callout-media{width:64px; height:80px; flex-shrink:0; background:var(rgb(247, 248, 240)); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
   .callout-media svg{width:70%;}
   .callout-body{display:flex; flex-direction:column; gap:6px;}
   .callout-body h4{font-family:var(--display); font-size:15px; margin:0;}
@@ -307,7 +307,7 @@
     .t-item:nth-child(odd){margin-right:54%; text-align:right;}
     .t-item:nth-child(even){margin-left:54%;}
   }
-  .t-dot{position:absolute; left:4px; top:4px; width:16px; height:16px; border-radius:50%; background:var(--cream); border:2px solid var(--betel);}
+  .t-dot{position:absolute; left:4px; top:4px; width:16px; height:16px; border-radius:50%; background:var(rgb(247, 248, 240)); border:2px solid var(--betel);}
   @media(min-width:760px){
     .t-item:nth-child(odd) .t-dot{right:-8.2%; left:auto;}
     .t-item:nth-child(even) .t-dot{left:-8.2%;}
@@ -337,7 +337,7 @@
     50%{transform:translate(4%,-6%) scale(1.12);}
   }
   .video-scene.paused .vs-blob{animation-play-state:paused;}
-  .video-copy{position:relative; z-index:2; text-align:center; color:var(--cream); padding:0 24px; max-width:18ch;}
+  .video-copy{position:relative; z-index:2; text-align:center; color:var(rgb(247, 248, 240)); padding:0 24px; max-width:18ch;}
   .video-copy h2{
     font-family:var(--display); font-weight:500; font-size:clamp(28px,5.4vw,58px);
     line-height:1.14; letter-spacing:-0.01em; margin:0;
@@ -349,7 +349,7 @@
   @media(min-width:900px){.video-controls{bottom:28px; right:28px;}}
   .vctrl{
     display:flex; align-items:center; gap:6px; background:rgba(255,248,225,0.14);
-    backdrop-filter:blur(6px); color:var(--cream); border:none; border-radius:2px;
+    backdrop-filter:blur(6px); color:var(rgb(247, 248, 240)); border:none; border-radius:2px;
     padding:9px 12px; font-family:var(--mono); font-size:10.5px; letter-spacing:.04em; cursor:pointer;
   }
   .vctrl:hover{background:rgba(255,248,225,0.26);}
@@ -374,7 +374,7 @@
   .g-item svg{width:56%; height:56%;}
   .g-play{
     position:absolute; bottom:10px; right:10px; width:26px; height:26px; border-radius:50%;
-    background:rgba(43,32,24,0.7); color:var(--cream); display:flex; align-items:center; justify-content:center;
+    background:rgba(43,32,24,0.7); color:var(rgb(247, 248, 240)); display:flex; align-items:center; justify-content:center;
   }
 
   /* ---------- Newsletter ---------- */
@@ -384,7 +384,7 @@
   .nl-form{display:flex; gap:0; border:1px solid var(--ink); border-radius:2px; overflow:hidden; max-width:420px;}
   .nl-form input{flex:1; border:none; background:transparent; padding:14px 16px; font-family:var(--body); font-size:14px; color:var(--ink);}
   .nl-form input:focus{outline:none;}
-  .nl-form button{border:none; background:var(--ink); color:var(--cream); font-weight:700; font-size:13px; padding:0 20px; cursor:pointer;}
+  .nl-form button{border:none; background:var(--ink); color:var(rgb(247, 248, 240)); font-weight:700; font-size:13px; padding:0 20px; cursor:pointer;}
   .nl-form button:hover{background:var(--betel);}
   .nl-note{font-size:12px; color:var(--ink-soft); margin-top:10px;}
 
@@ -429,7 +429,7 @@
    PAGE HERO — compact banner used at the top of every interior page
    ========================================================================= */
 .page-hero{
-  position:relative; background:var(--ink); color:var(--cream); overflow:hidden;
+  position:relative; background:var(--ink); color:var(rgb(247, 248, 240)); overflow:hidden;
   padding:54px 0 40px;
 }
 .page-hero .wrap{position:relative; z-index:2;}
@@ -444,7 +444,7 @@
   color:rgba(255,248,225,0.7); display:flex; gap:8px; align-items:center; margin-bottom:16px;
 }
 .breadcrumb a{text-decoration:none; color:rgba(255,248,225,0.7);}
-.breadcrumb a:hover{color:var(--cream);}
+.breadcrumb a:hover{color:var(rgb(247, 248, 240));}
 .page-hero h1{
   font-family:var(--display); font-weight:600; font-size:clamp(30px,5vw,52px);
   line-height:1.04; letter-spacing:-0.01em; margin:0 0 14px; max-width:18ch;
@@ -462,7 +462,7 @@
   padding:8px 14px; transition:background .2s ease, color .2s ease, border-color .2s ease;
 }
 .cat-tab:hover{border-color:var(--ink); color:var(--ink);}
-.cat-tab.active{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+.cat-tab.active{background:var(--ink); color:var(rgb(247, 248, 240)); border-color:var(--ink);}
 
 /* =========================================================================
    PRODUCT GRID — full catalogue pages (as opposed to the homepage rail)
@@ -491,7 +491,7 @@
   display:grid; grid-template-columns:auto 1fr; gap:18px; background:var(--paper);
   border:1px solid var(--line); border-radius:4px; padding:20px; align-items:center;
 }
-.bundle-media{width:96px; height:120px; flex-shrink:0; border-radius:3px; overflow:hidden; background:var(--cream); border:1px solid var(--line);}
+.bundle-media{width:96px; height:120px; flex-shrink:0; border-radius:3px; overflow:hidden; background:var(rgb(247, 248, 240)); border:1px solid var(--line);}
 .bundle-media img{width:100%; height:100%; object-fit:cover;}
 .bundle-body h3{font-family:var(--display); font-size:20px; margin:0 0 6px;}
 .bundle-body p{font-size:13.5px; color:var(--ink-soft); margin:0 0 12px;}
@@ -577,13 +577,13 @@
 .form-row{display:grid; grid-template-columns:1fr; gap:16px;}
 @media(min-width:600px){.form-row.two{grid-template-columns:1fr 1fr;}}
 .form-submit{width:100%; justify-content:center; border:none;}
-.form-submit.btn-primary{background:var(--ink); color:var(--cream); border:1px solid var(--ink);}
+.form-submit.btn-primary{background:var(--ink); color:var(rgb(247, 248, 240)); border:1px solid var(--ink);}
 .form-submit.btn-primary:hover{background:var(--betel); border-color:var(--betel);}
 .form-switch{text-align:center; font-size:13.5px; color:var(--ink-soft); margin-top:18px;}
 .form-switch a{color:var(--betel); text-decoration:underline;}
 .account-tabs{display:flex; gap:0; border:1px solid var(--ink); border-radius:2px; overflow:hidden; margin-bottom:30px;}
 .account-tabs button{flex:1; padding:12px; font-weight:700; font-size:13px; background:transparent; border:none; cursor:pointer;}
-.account-tabs button.active{background:var(--ink); color:var(--cream);}
+.account-tabs button.active{background:var(--ink); color:var(rgb(247, 248, 240));}
 
 /* =========================================================================
    CART PAGE
