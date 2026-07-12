@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanh toán — Thorakaoplus</title>
+<meta name="description" content="Hoàn tất đơn hàng Thorakao+ của bạn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<style>
+  .checkout-shell{max-width:920px; margin:0 auto; padding:0 20px 100px;}
+  .checkout-steps{
+    display:flex; gap:10px; margin-bottom:40px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft);
+  }
+  .checkout-steps span{display:flex; align-items:center; gap:8px;}
+  .checkout-steps span.active{color:var(--ink); font-weight:700;}
+  .checkout-steps span:not(:last-child)::after{content:'→'; margin-left:10px; color:var(--line);}
+
+  .checkout-grid{display:grid; grid-template-columns:1fr; gap:32px;}
+  @media(min-width:800px){.checkout-grid{grid-template-columns:1.3fr 1fr; align-items:start;}}
+
+  .pay-method{
+    display:flex; flex-direction:column; gap:12px; margin:22px 0 30px;
+  }
+  .pay-option{
+    display:flex; align-items:flex-start; gap:12px; border:1px solid var(--line);
+    border-radius:4px; padding:14px 16px; cursor:pointer; transition:border-color .15s ease, background .15s ease;
+  }
+  .pay-option:hover{border-color:var(--betel);}
+  .pay-option input{margin-top:3px;}
+  .pay-option.checked{border-color:var(--ink); background:var(--paper);}
+  .pay-option strong{display:block; font-size:14.5px; margin-bottom:2px;}
+  .pay-option small{color:var(--ink-soft); font-size:12.5px;}
+
+  .checkout-item{display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--line);}
+  .checkout-item:last-of-type{border-bottom:none;}
+  .checkout-item img{width:52px; height:64px; object-fit:cover; border-radius:2px; border:1px solid var(--line); background:var(--cream);}
+  .checkout-item .ci-name{font-family:var(--display); font-size:14.5px; margin:0 0 2px;}
+  .checkout-item .ci-qty{font-family:var(--mono); font-size:11.5px; color:var(--ink-soft);}
+  .checkout-item .ci-price{margin-left:auto; font-family:var(--mono); font-size:13px; font-weight:700;}
+
+  .qr-panel{text-align:center; padding:36px 24px;}
+  .qr-panel img{width:190px; height:190px; border:1px solid var(--line); border-radius:4px; padding:10px; background:#fff;}
+  .qr-amount{font-family:var(--display); font-weight:600; font-size:26px; margin:18px 0 4px;}
+  .qr-note{font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); margin-bottom:24px;}
+  .bank-info{
+    text-align:left; border:1px solid var(--line); border-radius:4px; background:var(--paper);
+    padding:18px 20px; margin:0 0 26px; font-size:13.5px; display:flex; flex-direction:column; gap:8px;
+  }
+  .bank-info .bi-row{display:flex; justify-content:space-between; gap:12px;}
+  .bank-info .bi-row span:first-child{color:var(--ink-soft);}
+  .bank-info .bi-row span:last-child{font-family:var(--mono); font-weight:700;}
+  .qr-timer{font-family:var(--mono); font-size:12px; color:var(--betel); margin-bottom:22px;}
+
+  .success-panel{text-align:center; padding:70px 20px;}
+  .success-check{
+    width:64px; height:64px; border-radius:50%; background:var(--ink); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 22px;
+  }
+  .success-panel h2{font-family:var(--display); font-weight:600; font-size:26px; margin:0 0 10px;}
+  .success-panel p{color:var(--ink-soft); margin:0 0 6px;}
+  .success-order-id{font-family:var(--mono); font-size:13px; color:var(--ink); margin:14px 0 30px;}
+  .success-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+
+  .step-panel{display:none;}
+  .step-panel.active{display:block;}
+</style>
+</head>
+<body>
+
+<div class="announce">Miễn phí giao hàng cho đơn từ 249.000đ &middot; Công thức từ 1957</div>
+
+<header class="site">
+  <nav class="main">
+    <a class="logo" href="./index.html" aria-label="Thorakaoplus — trang chủ">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" stroke="#355872" stroke-width="1.2"/>
+        <path d="M20 9c-2 4-6 5.5-6 10.5S16 28 20 31c4-3 6-7 6-11.5S22 13 20 9Z" stroke="#7AAACE" stroke-width="1.4" fill="none"/>
+        <path d="M11 20c2.5-2 5-2.5 9-2.5s6.5.5 9 2.5" stroke="#9CD5FF" stroke-width="1.1" fill="none"/>
+      </svg>
+      <span class="logo-word">Thorakao<em>+</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="./tat-ca-san-pham.html">Sản phẩm</a>
+      <a href="./cau-chuyen-thuong-hieu.html">Câu chuyện</a>
+      <a href="./contact.html">Tìm cửa hàng</a>
+    </div>
+    <div class="nav-right">
+      <a class="icon-btn" href="./account.html" aria-label="Tài khoản" style="text-decoration:none;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.2" r="3.2" stroke="#355872"/><path d="M2 15c0-3.6 2.7-5.8 6-5.8s6 2.2 6 5.8" stroke="#355872"/></svg>
+      </a>
+      <a class="cart-btn" href="./cart.html" aria-label="Giỏ hàng" style="text-decoration:none;">0</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="./index.html">Trang chủ</a><span>/</span><a href="./cart.html">Giỏ hàng</a><span>/</span><span>Thanh toán</span></div>
+      <h1>Thanh <em>toán.</em></h1>
+      <p>Đây là mô phỏng demo — không có giao dịch thật nào được thực hiện.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="checkout-shell">
+
+      <div class="checkout-steps">
+        <span id="stepLabel1" class="active">① Thông tin giao hàng</span>
+        <span id="stepLabel2">② Thanh toán</span>
+        <span id="stepLabel3">③ Hoàn tất</span>
+      </div>
+
+      <!-- STEP 1 — shipping info + payment method choice -->
+      <div class="step-panel active" id="step1">
+        <div class="checkout-grid">
+          <div>
+            <div class="form-field">
+              <label for="fName">Họ và tên</label>
+              <input type="text" id="fName" placeholder="Nguyễn Văn A">
+            </div>
+            <div class="form-field">
+              <label for="fPhone">Số điện thoại</label>
+              <input type="tel" id="fPhone" placeholder="09xx xxx xxx">
+            </div>
+            <div class="form-field">
+              <label for="fAddress">Địa chỉ giao hàng</label>
+              <input type="text" id="fAddress" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành">
+            </div>
+
+            <div class="pay-method" id="payMethodGroup">
+              <label class="pay-option checked">
+                <input type="radio" name="payMethod" value="qr" checked>
+                <span><strong>Chuyển khoản QR</strong><small>Quét mã QR bằng app ngân hàng — xác nhận ngay trong demo</small></span>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payMethod" value="cod">
+                <span><strong>Thanh toán khi nhận hàng (COD)</strong><small>Trả tiền mặt cho shipper khi nhận hàng</small></span>
+              </label>
+            </div>
+
+            <button class="btn btn-primary form-submit" id="toStep2" style="border-color:var(--ink); background:var(--ink); color:var(--cream);">Tiếp tục</button>
+          </div>
+
+          <div class="cart-summary" id="summaryBox1"></div>
+        </div>
+      </div>
+
+      <!-- STEP 2a — QR payment -->
+      <div class="step-panel" id="step2qr">
+        <div class="checkout-grid">
+          <div class="qr-panel">
+            <img id="qrImage" src="" alt="Mã QR thanh toán demo">
+            <div class="qr-amount" id="qrAmount">0đ</div>
+            <div class="qr-note">Quét mã bằng app ngân hàng bất kỳ — mã này chỉ dùng để demo</div>
+            <div class="bank-info">
+              <div class="bi-row"><span>Ngân hàng</span><span>VCB — Vietcombank</span></div>
+              <div class="bi-row"><span>Chủ tài khoản</span><span>THORAKAO PLUS DEMO</span></div>
+              <div class="bi-row"><span>Số tài khoản</span><span>0071 0001 2345 6</span></div>
+              <div class="bi-row"><span>Nội dung CK</span><span id="qrOrderCode">THORAKAO 000000</span></div>
+            </div>
+            <div class="qr-timer" id="qrTimer">Mã có hiệu lực trong 15:00</div>
+            <button class="btn btn-primary" id="confirmPaid" style="border-color:var(--ink); background:var(--ink); color:var(--cream);">Tôi đã thanh toán</button>
+            <p style="margin-top:16px;"><a href="#" id="backToStep1" style="font-size:13px; color:var(--ink-soft); text-decoration:underline;">← Quay lại thông tin giao hàng</a></p>
+          </div>
+          <div class="cart-summary" id="summaryBox2"></div>
+        </div>
+      </div>
+
+      <!-- STEP 2b — COD confirmation -->
+      <div class="step-panel" id="step2cod">
+        <div class="checkout-grid">
+          <div style="padding:36px 4px;">
+            <h3 style="font-family:var(--display); font-size:20px; margin:0 0 12px;">Xác nhận đơn hàng COD</h3>
+            <p style="color:var(--ink-soft); font-size:14.5px; max-width:46ch;">Bạn sẽ thanh toán tiền mặt trực tiếp cho shipper khi nhận hàng. Vui lòng kiểm tra lại thông tin giao hàng trước khi xác nhận.</p>
+            <button class="btn btn-primary" id="confirmCod" style="margin-top:18px; border-color:var(--ink); background:var(--ink); color:var(--cream);">Xác nhận đặt hàng</button>
+            <p style="margin-top:16px;"><a href="#" id="backToStep1cod" style="font-size:13px; color:var(--ink-soft); text-decoration:underline;">← Quay lại thông tin giao hàng</a></p>
+          </div>
+          <div class="cart-summary" id="summaryBox3"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3 — success -->
+      <div class="step-panel" id="step3">
+        <div class="success-panel">
+          <div class="success-check">✓</div>
+          <h2>Đặt hàng thành công!</h2>
+          <p>Cảm ơn bạn đã đặt hàng tại Thorakao+.</p>
+          <p>Đây là một đơn hàng demo — chưa có giao dịch hay giao hàng thật nào diễn ra.</p>
+          <div class="success-order-id" id="orderIdDisplay">Mã đơn hàng: —</div>
+          <div class="success-actions">
+            <a href="./index.html" class="btn btn-ghost">Về trang chủ</a>
+            <a href="./tat-ca-san-pham.html" class="btn btn-primary" style="border-color:var(--ink); background:var(--ink); color:var(--cream);">Tiếp tục mua sắm</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>© Thorakao+, 2026 — dòng sản phẩm lấy cảm hứng từ di sản Lan Hảo (Thorakao), 1957.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="./main.js"></script>
+<script>
+(function () {
+  function waitForCart(cb) {
+    if (window.ThorakaoCart) return cb();
+    setTimeout(() => waitForCart(cb), 30);
+  }
+
+  waitForCart(function () {
+    const cart = window.ThorakaoCart.read();
+    const fmt = window.ThorakaoCart.formatVnd;
+
+    if (!cart.length) {
+      document.querySelector('.checkout-shell').innerHTML =
+        '<div class="cart-empty"><p>Giỏ hàng của bạn đang trống.</p><a href="./tat-ca-san-pham.html" class="btn btn-primary" style="border-color:var(--ink); background:var(--ink); color:var(--cream);">Xem sản phẩm</a></div>';
+      return;
+    }
+
+    const subtotal = cart.reduce((s, p) => s + p.price * p.qty, 0);
+    const shipping = subtotal >= 249000 ? 0 : 20000;
+    const total = subtotal + shipping;
+
+    const orderId = 'TKP' + Date.now().toString().slice(-8);
+
+    function summaryHtml() {
+      const itemsHtml = cart.map((p) => `
+        <div class="checkout-item">
+          <img src="${p.image || './assets/images/shop/kem-nghe-tran-chau-01.jpg'}" alt="${p.name}">
+          <div>
+            <div class="ci-name">${p.name}</div>
+            <div class="ci-qty">SL: ${p.qty}</div>
+          </div>
+          <div class="ci-price">${fmt(p.price * p.qty)}</div>
+        </div>
+      `).join('');
+
+      return `
+        <h3 style="font-family:var(--display); font-size:19px; margin:0 0 14px;">Đơn hàng của bạn</h3>
+        ${itemsHtml}
+        <div class="summary-row" style="margin-top:14px;"><span>Tạm tính</span><span>${fmt(subtotal)}</span></div>
+        <div class="summary-row"><span>Giao hàng</span><span>${shipping === 0 ? 'Miễn phí' : fmt(shipping)}</span></div>
+        <div class="summary-row total"><span>Tổng cộng</span><span>${fmt(total)}</span></div>
+      `;
+    }
+
+    ['summaryBox1', 'summaryBox2', 'summaryBox3'].forEach((id) => {
+      document.getElementById(id).innerHTML = summaryHtml();
+    });
+
+    // QR code — generated live from a fake VietQR-style payment string.
+    // Purely visual for the demo; no real payment gateway is involved.
+    const qrPayload = `Ngan hang: Vietcombank | STK: 0071000123456 | So tien: ${total} VND | Noi dung: THORAKAO ${orderId}`;
+    document.getElementById('qrImage').src =
+      'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(qrPayload);
+    document.getElementById('qrAmount').textContent = fmt(total);
+    document.getElementById('qrOrderCode').textContent = 'THORAKAO ' + orderId;
+
+    // step switching
+    function showStep(id) {
+      document.querySelectorAll('.step-panel').forEach((el) => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function setStepLabel(n) {
+      document.querySelectorAll('.checkout-steps span').forEach((el, i) => {
+        el.classList.toggle('active', i === n - 1);
+      });
+    }
+
+    document.querySelectorAll('.pay-option').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.pay-option').forEach((o) => o.classList.remove('checked'));
+        opt.classList.add('checked');
+        opt.querySelector('input').checked = true;
+      });
+    });
+
+    document.getElementById('toStep2').addEventListener('click', () => {
+      const method = document.querySelector('input[name="payMethod"]:checked').value;
+      setStepLabel(2);
+      if (method === 'qr') {
+        showStep('step2qr');
+        startTimer();
+      } else {
+        showStep('step2cod');
+      }
+    });
+
+    document.getElementById('backToStep1').addEventListener('click', (e) => {
+      e.preventDefault(); setStepLabel(1); showStep('step1');
+    });
+    document.getElementById('backToStep1cod').addEventListener('click', (e) => {
+      e.preventDefault(); setStepLabel(1); showStep('step1');
+    });
+
+    function completeOrder() {
+      document.getElementById('orderIdDisplay').textContent = 'Mã đơn hàng: ' + orderId;
+      window.ThorakaoCart.write([]);
+      setStepLabel(3);
+      showStep('step3');
+    }
+
+    document.getElementById('confirmPaid').addEventListener('click', completeOrder);
+    document.getElementById('confirmCod').addEventListener('click', completeOrder);
+
+    // simple countdown, purely cosmetic
+    function startTimer() {
+      let secs = 15 * 60;
+      const el = document.getElementById('qrTimer');
+      const iv = setInterval(() => {
+        secs -= 1;
+        if (secs <= 0) { clearInterval(iv); el.textContent = 'Mã đã hết hạn — vui lòng thử lại'; return; }
+        const m = String(Math.floor(secs / 60)).padStart(2, '0');
+        const s = String(secs % 60).padStart(2, '0');
+        el.textContent = `Mã có hiệu lực trong ${m}:${s}`;
+      }, 1000);
+    }
+  });
+})();
+</script>
+</body>
+</html>
