@@ -654,3 +654,80 @@
 .mt-0{margin-top:0;}
 .center-head{text-align:center; max-width:60ch; margin:0 auto 34px;}
 .center-head .section-title{margin:0 auto;}
+
+/* =========================================================================
+   ARTICLE PAGE — long-form brand story (cau-chuyen-thuong-hieu.html)
+   ========================================================================= */
+.article-page .breadcrumb{color:var(--ink-soft);}
+.article-page .breadcrumb a{border-bottom:1px solid var(--line); color:inherit;}
+.article-page .breadcrumb a:hover{color:var(--betel); border-color:var(--betel);}
+
+.article-hero{padding:48px 0 20px;}
+.article-eyebrow{
+  font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--betel); display:flex; align-items:center; gap:8px; margin:22px 0 18px;
+}
+.article-eyebrow::before{content:'';width:18px;height:1px;background:var(--betel);}
+h1.article-h{
+  font-family:var(--display); font-weight:600; font-size:clamp(32px,5.6vw,54px);
+  line-height:1.06; letter-spacing:-0.015em; margin:0 0 22px; max-width:17ch;
+}
+h1.article-h em{font-style:italic; font-weight:500; color:var(--betel);}
+.article-dek{font-size:18px; line-height:1.6; color:var(--ink-soft); max-width:58ch; margin:0 0 8px;}
+.story-meta{
+  display:flex; flex-wrap:wrap; gap:18px; margin:26px 0 40px; padding:16px 0;
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); letter-spacing:.02em;
+}
+
+.article-body{max-width:760px; margin:0 auto;}
+.article-body p{font-size:17px; line-height:1.75; color:var(--ink); max-width:64ch; margin:0 0 22px;}
+.article-body h2{
+  font-family:var(--display); font-weight:600; font-size:clamp(24px,3.4vw,32px);
+  line-height:1.15; letter-spacing:-0.01em; margin:52px 0 20px; max-width:22ch;
+}
+.article-body h2 em{font-style:italic; font-weight:500; color:var(--betel);}
+.article-body h3{font-family:var(--display); font-weight:600; font-size:20px; margin:34px 0 14px;}
+
+.pull-quote{
+  margin:44px 0; padding:6px 0 6px 26px; border-left:3px solid var(--gold);
+  font-family:var(--display); font-style:italic; font-weight:500;
+  font-size:clamp(20px,2.6vw,26px); line-height:1.45; color:var(--ink); max-width:52ch;
+}
+.pull-quote cite{
+  display:block; margin-top:14px; font-family:var(--mono); font-style:normal;
+  font-size:11.5px; letter-spacing:.03em; color:var(--ink-soft); text-transform:uppercase;
+}
+
+.fig{margin:48px 0; border:1px solid var(--line); background:var(--paper); border-radius:4px; overflow:hidden;}
+.fig-media{
+  aspect-ratio:16/9; display:flex; align-items:center; justify-content:center;
+  background:var(--cream); border-bottom:1px solid var(--line); padding:24px;
+}
+.fig-media svg{width:auto; height:100%; max-width:100%;}
+.fig-caption{padding:16px 20px;}
+.fig-label{
+  font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--betel); margin-bottom:6px;
+}
+.fig-caption p{font-size:13.5px; color:var(--ink-soft); margin:0; max-width:none;}
+
+.facts-panel{
+  margin:48px 0; border:1px solid var(--line); border-radius:4px; background:var(--paper);
+  padding:26px 24px; display:grid; grid-template-columns:1fr 1fr; gap:22px;
+}
+@media(min-width:600px){.facts-panel{grid-template-columns:repeat(3,1fr);}}
+.fact-num{font-family:var(--display); font-weight:600; font-size:24px; color:var(--gold-deep); line-height:1.15;}
+.fact-label{font-size:12.5px; color:var(--ink-soft); margin-top:6px; max-width:18ch;}
+
+.article-cta{
+  margin:56px 0 20px; padding:30px 26px; border:1px solid var(--ink); border-radius:4px;
+  display:flex; flex-direction:column; gap:14px;
+}
+@media(min-width:700px){.article-cta{flex-direction:row; align-items:center; justify-content:space-between;}}
+.article-cta p{margin:0; max-width:44ch; font-size:15px;}
+
+.article-sources{
+  margin:60px 0 40px; padding-top:20px; border-top:1px solid var(--line);
+  font-family:var(--mono); font-size:11px; line-height:1.8; color:var(--ink-soft); max-width:64ch;
+}
