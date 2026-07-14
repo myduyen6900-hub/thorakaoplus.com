@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Chi tiết sản phẩm — Thorakaoplus</title>
+<meta id="pageDesc" name="description" content="Chi tiết sản phẩm Thorakao+.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<style>
+  .product-page{max-width:1080px; margin:0 auto; padding:0 20px 90px;}
+  .product-detail{display:grid; grid-template-columns:1fr; gap:36px; padding-top:22px;}
+  @media(min-width:820px){.product-detail{grid-template-columns:1fr 1fr; align-items:start;}}
+
+  .product-gallery-ph{
+    aspect-ratio:1/1; border:1px solid var(--line); border-radius:6px; background:var(--paper);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+    font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-transform:uppercase; text-align:center; padding:20px;
+  }
+
+  .product-tag-pill{
+    display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--betel); border:1px solid var(--line); border-radius:20px; padding:5px 12px; margin-bottom:16px;
+  }
+  .product-title{font-family:var(--display); font-weight:600; font-size:clamp(24px,3.6vw,34px); line-height:1.15; margin:0 0 12px;}
+  .product-price{font-family:var(--display); font-weight:600; font-size:24px; color:var(--ink); margin:0 0 18px;}
+  .product-short-desc{font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0 0 26px; max-width:48ch;}
+
+  .product-buy-row{display:flex; align-items:center; gap:14px; margin-bottom:30px; flex-wrap:wrap;}
+
+  .product-section{border-top:1px solid var(--line); padding:26px 0;}
+  .product-section:last-child{border-bottom:1px solid var(--line);}
+  .product-section h2{font-family:var(--display); font-weight:600; font-size:18px; margin:0 0 14px;}
+  .product-section p{font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0; max-width:62ch;}
+
+  .usage-steps{margin:0; padding:0; list-style:none; counter-reset:step; display:flex; flex-direction:column; gap:14px;}
+  .usage-steps li{display:flex; gap:14px; align-items:flex-start; font-size:14.5px; line-height:1.6; color:var(--ink-soft);}
+  .usage-steps li::before{
+    counter-increment:step; content:counter(step);
+    flex:none; width:24px; height:24px; border-radius:50%; background:var(--ink); color:var(--cream);
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:12px;
+  }
+
+  .product-note{
+    margin-top:26px; padding:16px 18px; border:1px solid var(--line); border-radius:4px; background:var(--paper);
+    font-size:13.5px; color:var(--ink-soft); display:flex; gap:10px; align-items:flex-start;
+  }
+  .product-note::before{content:'ℹ'; font-family:var(--mono); color:var(--betel); flex:none;}
+
+  .product-not-found{padding:80px 20px; text-align:center;}
+  .product-not-found h1{font-family:var(--display); font-weight:600; font-size:26px; margin:0 0 12px;}
+  .product-not-found p{color:var(--ink-soft); margin:0 0 24px;}
+</style>
+</head>
+<body>
+
+<div class="announce">Miễn phí giao hàng cho đơn từ 249.000đ &middot; Công thức từ 1957</div>
+
+<header class="site">
+  <nav class="main">
+    <a class="logo" href="./index.html" aria-label="Thorakaoplus — trang chủ">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" stroke="#355872" stroke-width="1.2"/>
+        <path d="M20 9c-2 4-6 5.5-6 10.5S16 28 20 31c4-3 6-7 6-11.5S22 13 20 9Z" stroke="#7AAACE" stroke-width="1.4" fill="none"/>
+        <path d="M11 20c2.5-2 5-2.5 9-2.5s6.5.5 9 2.5" stroke="#9CD5FF" stroke-width="1.1" fill="none"/>
+      </svg>
+      <span class="logo-word">Thorakao<em>+</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="./tat-ca-san-pham.html">Sản phẩm</a>
+      <a href="./cau-chuyen-thuong-hieu.html">Câu chuyện</a>
+      <a href="./contact.html">Tìm cửa hàng</a>
+    </div>
+    <div class="nav-right">
+      <a class="icon-btn" href="./account.html" aria-label="Tài khoản" style="text-decoration:none;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.2" r="3.2" stroke="#355872"/><path d="M2 15c0-3.6 2.7-5.8 6-5.8s6 2.2 6 5.8" stroke="#355872"/></svg>
+      </a>
+      <a class="cart-btn" href="./cart.html" aria-label="Giỏ hàng" style="text-decoration:none;">0</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section>
+    <div class="product-page" id="productRoot">
+      <!-- filled in by JS below, based on ?id= in the URL -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>© Thorakao+, 2026 — dòng sản phẩm lấy cảm hứng từ di sản Lan Hảo (Thorakao), 1957.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="./products-data.js"></script>
+<script src="./main.js"></script>
+<script>
+(function () {
+  const root = document.getElementById('productRoot');
+  const fmt = (n) => (window.ThorakaoCart && window.ThorakaoCart.formatVnd)
+    ? window.ThorakaoCart.formatVnd(n)
+    : n.toLocaleString('vi-VN') + 'đ';
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const product = (window.THORAKAO_PRODUCTS || []).find((p) => p.id === id);
+
+  if (!product) {
+    root.innerHTML = `
+      <div class="product-not-found">
+        <h1>Không tìm thấy sản phẩm</h1>
+        <p>Sản phẩm bạn tìm không tồn tại hoặc đường dẫn không đúng.</p>
+        <a href="./tat-ca-san-pham.html" class="btn btn-primary" style="border-color:var(--ink); background:var(--ink); color:var(--cream);">Xem tất cả sản phẩm</a>
+      </div>
+    `;
+    return;
+  }
+
+  document.title = product.name + ' — Thorakaoplus';
+  document.getElementById('pageDesc').setAttribute('content', product.shortDesc);
+
+  const priceHtml = product.price
+    ? fmt(product.price)
+    : '<span style="font-size:14px; color:var(--ink-soft);">Giá đang cập nhật</span>';
+
+  const stepsHtml = product.steps.length
+    ? `<ol class="usage-steps">${product.steps.map((s) => `<li>${s}</li>`).join('')}</ol>`
+    : '<p>Hướng dẫn sử dụng đang được cập nhật.</p>';
+
+  root.innerHTML = `
+    <div class="breadcrumb" style="margin-top:22px;">
+      <a href="./index.html">Trang chủ</a><span>/</span>
+      <a href="${product.categoryHref}">${product.category}</a><span>/</span>
+      <span>${product.name}</span>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-gallery-ph">Ảnh sản phẩm thật<br>(${product.name})</div>
+
+      <div>
+        <span class="product-tag-pill">${product.category}</span>
+        <h1 class="product-title">${product.name}</h1>
+        <div class="product-price">${priceHtml}</div>
+        <p class="product-short-desc">${product.shortDesc}</p>
+
+        <div class="product-buy-row">
+          <div class="qty-control">
+            <button type="button" data-action="dec" aria-label="Giảm số lượng">−</button>
+            <span id="prodQty">1</span>
+            <button type="button" data-action="inc" aria-label="Tăng số lượng">+</button>
+          </div>
+          <button
+            class="btn btn-primary add-btn"
+            style="border-color:var(--ink); background:var(--ink); color:var(--cream);"
+            data-id="${product.id}"
+            data-name="${product.name}"
+            data-price="${product.price || 0}"
+            data-tag="${product.category}"
+            data-image="${product.image}">
+            Thêm vào giỏ
+          </button>
+        </div>
+
+        <div class="product-section">
+          <h2>Thành phần chính</h2>
+          <p>${product.ingredients}</p>
+        </div>
+
+        <div class="product-section">
+          <h2>Công dụng</h2>
+          <p>${product.benefits}</p>
+        </div>
+
+        <div class="product-section">
+          <h2>Hướng dẫn sử dụng</h2>
+          ${stepsHtml}
+        </div>
+
+        <div class="product-note">${product.note}</div>
+      </div>
+    </div>
+  `;
+
+  // qty stepper + add-to-cart, wired after the markup above exists
+  const qtyEl = document.getElementById('prodQty');
+  const addBtn = root.querySelector('.add-btn');
+  root.querySelector('[data-action="dec"]').addEventListener('click', () => {
+    qtyEl.textContent = Math.max(1, Number(qtyEl.textContent) - 1);
+  });
+  root.querySelector('[data-action="inc"]').addEventListener('click', () => {
+    qtyEl.textContent = Number(qtyEl.textContent) + 1;
+  });
+  addBtn.addEventListener('click', () => {
+    // main.js's own .add-btn listener already adds 1 unit on this click;
+    // this just corrects the quantity up to whatever the stepper shows.
+    const qty = Number(qtyEl.textContent);
+    if (qty > 1 && window.ThorakaoCart) {
+      setTimeout(() => window.ThorakaoCart.setQty(addBtn.dataset.id, qty), 0);
+    }
+  });
+})();
+</script>
+</body>
+</html>
