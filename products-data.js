@@ -30,7 +30,7 @@ window.THORAKAO_PRODUCTS = [
     categoryHref: "./cham-soc-toc.html",
     name: "Dầu gội Cao Bồ Kết Thorakao 250ml",
     price: 48000,
-    image: "./assets/images/shop/dau-goi-cao-bo-ket-250ml.jpg",
+    image: "img/dau_goi_bo_ket.png",
     shortDesc: "Giảm gàu, chống nấm, ngăn ngừa gãy rụng tóc — cho tóc đen bóng và mềm mượt.",
     ingredients: "Tinh chất bồ kết thiên nhiên.",
     benefits: "Giảm gàu, chống nấm, ngăn ngừa gãy rụng tóc, kích thích mọc tóc, làm sạch da đầu, hỗ trợ tóc đen bóng và mềm mượt.",
