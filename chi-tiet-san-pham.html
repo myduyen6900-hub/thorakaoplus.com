@@ -154,7 +154,9 @@
     </div>
 
     <div class="product-detail">
-      <div class="product-gallery-ph">Ảnh sản phẩm thật<br>(${product.name})</div>
+      <div class="product-gallery-ph">
+        <img src="${product.image}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover; border-radius:6px;">
+      </div>
 
       <div>
         <span class="product-tag-pill">${product.category}</span>
