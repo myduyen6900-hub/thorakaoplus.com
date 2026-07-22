@@ -212,7 +212,7 @@ window.THORAKAO_PRODUCTS = [
     id: "sua-rua-mat-bo-e100",
     category: "Dưỡng da",
     categoryHref: "./cham-soc-da.html",
-    name: "Sữa rửa mặt tinh chất sữa bò Thorakao 120g",
+    name: "Sữa rửa mặt bò e100",
     price: 73000,
     image: "./assets/images/shop/sua-rua-mat-bo-e100.jpg",
     shortDesc: "Làm sạch nhẹ nhàng, giữ ẩm, giúp da mềm mịn và sáng khỏe.",
