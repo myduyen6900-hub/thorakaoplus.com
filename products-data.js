@@ -209,12 +209,12 @@ window.THORAKAO_PRODUCTS = [
     note: "Giá cần chèn theo trang official trước khi xuất bản."
   },
   {
-    id: "sua-rua-mat-sua-bo-120g",
+    id: "sua-rua-mat-bo-e100",
     category: "Dưỡng da",
     categoryHref: "./cham-soc-da.html",
     name: "Sữa rửa mặt tinh chất sữa bò Thorakao 120g",
     price: 73000,
-    image: "./assets/images/shop/sua-rua-mat-sua-bo-120g.jpg",
+    image: "./assets/images/shop/sua-rua-mat-bo-e100.jpg",
     shortDesc: "Làm sạch nhẹ nhàng, giữ ẩm, giúp da mềm mịn và sáng khỏe.",
     ingredients: "Tinh chất sữa bò.",
     benefits: "Làm sạch bụi bẩn, giữ ẩm, giúp da mềm mịn và sáng khỏe; phù hợp cho làn da muốn làm sạch nhẹ nhàng nhưng vẫn dưỡng ẩm.",
@@ -247,12 +247,12 @@ window.THORAKAO_PRODUCTS = [
     note: "Có thể dùng trước kem chống nắng hoặc trang điểm."
   },
   {
-    id: "kem-nam-oc-sen-30g",
+    id: "kem-duong-da-oc-sen-ban-dem-30g",
     category: "Dưỡng da",
     categoryHref: "./cham-soc-da.html",
-    name: "Kem nám Ốc sên Thorakao 30g",
+    name: "Kem Dưỡng Da Ốc Sên Đêm 30g",
     price: 313000,
-    image: "./assets/images/shop/kem-nam-oc-sen-30g.jpg",
+    image: "./assets/images/shop/kem-duong-da-oc-sen-ban-dem-30g.jpg",
     shortDesc: "Giảm nám, tàn nhang, thâm sạm; cải thiện độ đàn hồi và ngăn ngừa lão hóa.",
     ingredients: "Dịch nhầy ốc sên kết hợp tinh chất thảo dược.",
     benefits: "Giảm nám, tàn nhang, thâm sạm; dưỡng da sáng mịn, đều màu; cải thiện độ đàn hồi; giảm nếp nhăn; ngăn ngừa lão hóa.",
