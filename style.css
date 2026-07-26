@@ -273,7 +273,7 @@
     padding:4px 8px; border-radius:2px; z-index:2;
   }
   .card-body{padding:16px; display:flex; flex-direction:column; gap:6px; flex:1;}
-  .card-tag{font-family:var(--mono); font-size:11px; color:var(--gold-deep); text-transform:uppercase; letter-spacing:.03em;}
+  .card-tag{font-family: inherit; font-size:11px; color:var(--gold-deep); text-transform:uppercase; letter-spacing:.03em;}
   .card-name{font-family:var(--display); font-weight:600; font-size:19px; margin:0;}
   .card-desc{font-size:13px; color:var(--ink-soft); flex:1;}
   .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:8px;}
