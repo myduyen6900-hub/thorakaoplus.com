@@ -67,7 +67,7 @@ window.THORAKAO_PRODUCTS = [
     categoryHref: "./cham-soc-toc.html",
     name: "Dầu gội xả 2in1 Hoa Bưởi Thorakao 400ml",
     price: 104000,
-    image: "./img/combo-dau-goi.png.jpg",
+    image: "./img/combo-dau-goi-hoa-buoi.png",
     shortDesc: "Nuôi dưỡng tóc chắc khỏe, giảm khô xơ, hỗ trợ phục hồi tóc chẻ ngọn.",
     ingredients: "Tinh dầu bưởi.",
     benefits: "Nuôi dưỡng tóc chắc khỏe, giảm khô xơ, hỗ trợ phục hồi tóc chẻ ngọn, kích thích mọc tóc, ngăn rụng tóc, làm sạch da đầu và giảm gàu.",
