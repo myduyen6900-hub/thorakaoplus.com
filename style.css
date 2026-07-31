@@ -155,7 +155,7 @@
     display:flex; align-items:flex-end;
   }
   @media(min-width:900px){.hero{min-height:88svh;}}
-  .hero-bg{
+  /* .hero-bg{
     position:absolute; inset:0; z-index:0;
     background:
       radial-gradient(circle at 22% 18%, rgba(156,213,255,0.35), transparent 46%),
@@ -164,7 +164,15 @@
       linear-gradient(160deg, #1E3547 0%, #355872 55%, #16262F 100%);
     background-size:180% 180%, 180% 180%, 200% 200%, 100% 100%;
     animation:heroDrift 22s ease-in-out infinite alternate;
-  }
+  } */
+.hero-bg{
+  position:absolute; inset:0; z-index:0;
+  background:
+    linear-gradient(160deg, rgba(30,53,71,0.6) 0%, rgba(53,88,114,0.3) 55%, rgba(22,38,47,0.65) 100%),
+    url('./news-img/hinh-trang-chu-thien-than-khong-can-trang-diem.png');
+  background-size:cover, cover;
+  background-position:center, center;
+}
   @keyframes heroDrift{
     0%{background-position:0% 0%, 100% 0%, 50% 100%, 0 0;}
     100%{background-position:20% 20%, 80% 30%, 60% 80%, 0 0;}
