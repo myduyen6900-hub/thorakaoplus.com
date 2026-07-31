@@ -170,8 +170,11 @@
     100%{background-position:20% 20%, 80% 30%, 60% 80%, 0 0;}
   }
   .hero-props{position:absolute; inset:0; z-index:1; pointer-events:none;}
-  .hero-jar{position:absolute; right:6%; top:14%; width:26%; max-width:230px; animation:floatY 6s ease-in-out infinite;}
-  @media(max-width:700px){.hero-jar{width:38%; top:10%; right:8%;}}
+  /* .hero-jar{position:absolute; right:6%; top:14%; width:26%; max-width:230px; animation:floatY 6s ease-in-out infinite;}
+  @media(max-width:700px){.hero-jar{width:38%; top:10%; right:8%;}} */
+.hero-jar{position:absolute; right:6%; top:16%; width:36%; max-width:340px; animation:floatY 6s ease-in-out infinite;}
+.hero-jar img{border-radius:6px; border:1px solid var(--line-on-dark); box-shadow:0 20px 44px -16px rgba(22,38,47,0.5);}
+@media(max-width:700px){.hero-jar{width:48%; top:9%; right:6%;}}
   @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
   .hero-stamp{position:absolute; left:6%; top:10%; width:110px; animation:spinSlow 34s linear infinite;}
   @media(max-width:700px){.hero-stamp{width:78px; top:8%;}}
