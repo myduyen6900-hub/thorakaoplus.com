@@ -150,10 +150,14 @@
   }
 
   /* ---------- HERO (full-bleed, dark, overlay copy like Topicals) ---------- */
-  .hero{
+  /* .hero{
     position:relative; min-height:78svh; overflow:hidden; color:var(--cream);
     display:flex; align-items:flex-end;
-  }
+  } */
+   .hero{
+     position:relative; min-height:78svh; overflow:hidden; color:var(--cream);
+     display:flex; flex-direction:column; justify-content:flex-end;
+   }
   @media(min-width:900px){.hero{min-height:88svh;}}
   /* .hero-bg{
     position:absolute; inset:0; z-index:0;
