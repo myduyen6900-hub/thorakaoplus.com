@@ -85,6 +85,7 @@
   </div>
 </template>
 
+<script src="./product-data.js"></script>
 <script>
   (function () {
     const root = document.getElementById('cartRoot');
@@ -101,24 +102,70 @@
         return;
       }
 
-      const subtotal = cart.reduce((s, p) => s + p.price * p.qty, 0);
+      // const subtotal = cart.reduce((s, p) => s + p.price * p.qty, 0);
+      // const shipping = subtotal >= 249000 ? 0 : 20000;
+      // const total = subtotal + shipping;
+
+      // const itemsHtml = cart.map((p) => `
+      //   <div class="cart-item" data-id="${p.id}">
+      //     <img src="${p.image || './assets/images/shop/Kem-Nghe-duong-da-White-Sua-De-&-Ngoc-Trai-30g-01.jpg'}" alt="${p.name}">
+      //     <div>
+      //       <span class="cart-tag">${p.tag || ''}</span>
+      //       <h4>${p.name}</h4>
+      //       <div class="qty-control">
+      //         <button data-action="dec" aria-label="Giảm số lượng">−</button>
+      //         <span>${p.qty}</span>
+      //         <button data-action="inc" aria-label="Tăng số lượng">+</button>
+      //       </div>
+      //       <button class="cart-remove" data-action="remove">Xoá</button>
+      //     </div>
+      //     <div class="cart-item-price">${fmt(p.price * p.qty)}</div>
+      //   </div>
+      // `).join('');
+      const products = window.THORAKAO_PRODUCTS || [];
+      
+      const cartItems = cart.map((item) => {
+        const product = products.find((p) => p.id === item.id);
+      
+        if (!product) return null;
+      
+        return {
+          ...product,
+          qty: item.qty
+        };
+      }).filter(Boolean);
+      
+      const subtotal = cartItems.reduce(
+        (s, p) => s + (p.price || 0) * p.qty,
+        0
+      );
+      
       const shipping = subtotal >= 249000 ? 0 : 20000;
       const total = subtotal + shipping;
-
-      const itemsHtml = cart.map((p) => `
+      
+      const itemsHtml = cartItems.map((p) => `
         <div class="cart-item" data-id="${p.id}">
-          <img src="${p.image || './assets/images/shop/Kem-Nghe-duong-da-White-Sua-De-&-Ngoc-Trai-30g-01.jpg'}" alt="${p.name}">
+          <img src="${p.image}" alt="${p.name}">
+      
           <div>
-            <span class="cart-tag">${p.tag || ''}</span>
+            <span class="cart-tag">${p.category || ''}</span>
+      
             <h4>${p.name}</h4>
+      
             <div class="qty-control">
               <button data-action="dec" aria-label="Giảm số lượng">−</button>
               <span>${p.qty}</span>
               <button data-action="inc" aria-label="Tăng số lượng">+</button>
             </div>
-            <button class="cart-remove" data-action="remove">Xoá</button>
+      
+            <button class="cart-remove" data-action="remove">
+              Xoá
+            </button>
           </div>
-          <div class="cart-item-price">${fmt(p.price * p.qty)}</div>
+      
+          <div class="cart-item-price">
+            ${fmt((p.price || 0) * p.qty)}
+          </div>
         </div>
       `).join('');
 
