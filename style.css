@@ -756,16 +756,16 @@ h1.article-h em{font-style:italic; font-weight:500; color:var(--betel);}
     justify-content: center;
 }
 
-.hero-product-image {
+/* .hero-product-image {
     width: 100%;
     max-width: 480px;
     height: auto;
     display: block;
-}
+} */
 
-/* .hero-product-image {
+.hero-product-image {
     width: min(100%, 520px);
     height: auto;
     display: block;
     object-fit: contain;
-} */
+}
