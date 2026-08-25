@@ -17,12 +17,6 @@
 <header class="site">
   <nav class="main">
     <a class="logo" href="./index.html" aria-label="Thorakaoplus — trang chủ">
-      <!-- <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" stroke="#2B2018" stroke-width="1.2"/>
-        <path d="M20 9c-2 4-6 5.5-6 10.5S16 28 20 31c4-3 6-7 6-11.5S22 13 20 9Z" stroke="#C97F1E" stroke-width="1.4" fill="none"/>
-        <path d="M11 20c2.5-2 5-2.5 9-2.5s6.5.5 9 2.5" stroke="#A63A2E" stroke-width="1.1" fill="none"/>
-      </svg>
-      <span class="logo-word">Thorakao<em>+</em></span> -->
       <img src="img/logo_Photoroom.png" alt="Thorakao" style="height:28px; width:auto;">
     </a>
     
@@ -102,72 +96,72 @@
         return;
       }
 
-      // const subtotal = cart.reduce((s, p) => s + p.price * p.qty, 0);
-      // const shipping = subtotal >= 249000 ? 0 : 20000;
-      // const total = subtotal + shipping;
-
-      // const itemsHtml = cart.map((p) => `
-      //   <div class="cart-item" data-id="${p.id}">
-      //     <img src="${p.image || './assets/images/shop/Kem-Nghe-duong-da-White-Sua-De-&-Ngoc-Trai-30g-01.jpg'}" alt="${p.name}">
-      //     <div>
-      //       <span class="cart-tag">${p.tag || ''}</span>
-      //       <h4>${p.name}</h4>
-      //       <div class="qty-control">
-      //         <button data-action="dec" aria-label="Giảm số lượng">−</button>
-      //         <span>${p.qty}</span>
-      //         <button data-action="inc" aria-label="Tăng số lượng">+</button>
-      //       </div>
-      //       <button class="cart-remove" data-action="remove">Xoá</button>
-      //     </div>
-      //     <div class="cart-item-price">${fmt(p.price * p.qty)}</div>
-      //   </div>
-      // `).join('');
-      const products = window.THORAKAO_PRODUCTS || [];
-      
-      const cartItems = cart.map((item) => {
-        const product = products.find((p) => p.id === item.id);
-      
-        if (!product) return null;
-      
-        return {
-          ...product,
-          qty: item.qty
-        };
-      }).filter(Boolean);
-      
-      const subtotal = cartItems.reduce(
-        (s, p) => s + (p.price || 0) * p.qty,
-        0
-      );
-      
+      const subtotal = cart.reduce((s, p) => s + p.price * p.qty, 0);
       const shipping = subtotal >= 249000 ? 0 : 20000;
       const total = subtotal + shipping;
-      
-      const itemsHtml = cartItems.map((p) => `
+
+      const itemsHtml = cart.map((p) => `
         <div class="cart-item" data-id="${p.id}">
           <img src="${p.image}" alt="${p.name}">
-      
           <div>
-            <span class="cart-tag">${p.category || ''}</span>
-      
+            <span class="cart-tag">${p.tag || ''}</span>
             <h4>${p.name}</h4>
-      
             <div class="qty-control">
               <button data-action="dec" aria-label="Giảm số lượng">−</button>
               <span>${p.qty}</span>
               <button data-action="inc" aria-label="Tăng số lượng">+</button>
             </div>
-      
-            <button class="cart-remove" data-action="remove">
-              Xoá
-            </button>
+            <button class="cart-remove" data-action="remove">Xoá</button>
           </div>
-      
-          <div class="cart-item-price">
-            ${fmt((p.price || 0) * p.qty)}
-          </div>
+          <div class="cart-item-price">${fmt(p.price * p.qty)}</div>
         </div>
       `).join('');
+      // const products = window.THORAKAO_PRODUCTS || [];
+      
+      // const cartItems = cart.map((item) => {
+      //   const product = products.find((p) => p.id === item.id);
+      
+      //   if (!product) return null;
+      
+      //   return {
+      //     ...product,
+      //     qty: item.qty
+      //   };
+      // }).filter(Boolean);
+      
+      // const subtotal = cartItems.reduce(
+      //   (s, p) => s + (p.price || 0) * p.qty,
+      //   0
+      // );
+      
+      // const shipping = subtotal >= 249000 ? 0 : 20000;
+      // const total = subtotal + shipping;
+      
+      // const itemsHtml = cartItems.map((p) => `
+      //   <div class="cart-item" data-id="${p.id}">
+      //     <img src="${p.image}" alt="${p.name}">
+      
+      //     <div>
+      //       <span class="cart-tag">${p.category || ''}</span>
+      
+      //       <h4>${p.name}</h4>
+      
+      //       <div class="qty-control">
+      //         <button data-action="dec" aria-label="Giảm số lượng">−</button>
+      //         <span>${p.qty}</span>
+      //         <button data-action="inc" aria-label="Tăng số lượng">+</button>
+      //       </div>
+      
+      //       <button class="cart-remove" data-action="remove">
+      //         Xoá
+      //       </button>
+      //     </div>
+      
+      //     <div class="cart-item-price">
+      //       ${fmt((p.price || 0) * p.qty)}
+      //     </div>
+      //   </div>
+      // `).join('');
 
       root.innerHTML = `
         <div class="cart-layout">
