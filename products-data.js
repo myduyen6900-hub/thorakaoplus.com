@@ -43,25 +43,6 @@ window.THORAKAO_PRODUCTS = [
     note: "Nên dùng đều đặn 2–3 lần/tuần."
   },
   {
-    id: "dau-goi-xa-2in1-bo-ket-400ml",
-    category: "Chăm sóc tóc",
-    categoryHref: "./cham-soc-toc.html",
-    name: "Dầu gội xả 2in1 Bồ Kết Thorakao 400ml",
-    price: 104000,
-    image: "./img/combo-khoi-dau-thorakao+.jpg",
-    shortDesc: "Làm sạch tóc và da đầu, nuôi dưỡng tóc mềm mại, dễ chải và lưu hương lâu.",
-    ingredients: "Chiết xuất bồ kết.",
-    benefits: "Làm sạch tóc và da đầu, giảm dầu thừa, nuôi dưỡng tóc mềm mại, tăng độ ẩm, giúp tóc dễ chải và lưu hương lâu.",
-    steps: [
-      "Làm ướt tóc.",
-      "Cho lượng vừa đủ ra lòng bàn tay.",
-      "Tạo bọt và thoa đều lên tóc và da đầu.",
-      "Massage nhẹ rồi xả sạch.",
-      "Dùng 2–3 lần/tuần hoặc theo nhu cầu."
-    ],
-    note: "Phù hợp cho tóc nhờn, tóc yếu và dễ gãy rụng."
-  },
-  {
     id: "dau-goi-xa-2in1-hoa-buoi-400ml",
     category: "Chăm sóc tóc",
     categoryHref: "./cham-soc-toc.html",
