@@ -9,6 +9,143 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css">
+
+<!--
+  ============================================================
+  OVERRIDE LAYOUT: chuyển "Câu chuyện thương hiệu" từ bố cục
+  so le (zigzag) sang bố cục 1 CỘT DỌC, canh giữa, có max-width
+  để không tràn / không chạm 2 mép màn hình.
+  Toàn bộ nội dung chữ được GIỮ NGUYÊN, chỉ đổi cách sắp xếp.
+  ============================================================
+-->
+<style>
+  /* ---- Khung chung của phần nội dung câu chuyện ---- */
+  .story-zigzag-section .wrap,
+  .article-body.wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  /* ---- Khối 4 mốc (Khởi nguồn / Nguyên liệu / Đổi mới / Vươn ra thế giới) ---- */
+  .story-zigzag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    width: 100%;
+  }
+
+  .story-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    gap: 18px;
+  }
+
+  .story-media {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .story-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .story-ph {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-text {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .story-text h3 {
+    margin-bottom: 8px;
+  }
+
+  .story-label {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ---- Khối "Fig." (nguồn gốc tên gọi / bằng sáng chế) ---- */
+  .fig {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 40px auto;
+    gap: 16px;
+  }
+
+  .fig-media {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .fig-media img,
+  .fig-media svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .fig-caption {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ---- Trích dẫn nổi bật và phần chữ chính: giới hạn bề rộng, canh giữa ---- */
+  .article-body p,
+  .article-body h2,
+  .pull-quote,
+  .article-cta,
+  .article-sources {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---- Đảm bảo hero/breadcrumb cũng không chạm mép trên mobile ---- */
+  .article-hero .wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 480px) {
+    .story-zigzag-section .wrap,
+    .article-body.wrap,
+    .article-hero .wrap {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -17,12 +154,6 @@
 <header class="site">
   <nav class="main">
     <a class="logo" href="../index.html" aria-label="Thorakaoplus — trang chủ">
-      <!-- <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" stroke="#2B2018" stroke-width="1.2"/>
-        <path d="M20 9c-2 4-6 5.5-6 10.5S16 28 20 31c4-3 6-7 6-11.5S22 13 20 9Z" stroke="#C97F1E" stroke-width="1.4" fill="none"/>
-        <path d="M11 20c2.5-2 5-2.5 9-2.5s6.5.5 9 2.5" stroke="#A63A2E" stroke-width="1.1" fill="none"/>
-      </svg>
-      <span class="logo-word">Thorakao<em>+</em></span> -->
       <img src="img/logo_Photoroom.png" alt="Thorakao" style="height:28px; width:auto;">
     </a>
     
@@ -61,78 +192,6 @@
   </div>
 </header>
 
-<!-- <main id="top">
-  <section class="page-hero">
-    <div class="wrap">
-      <div class="breadcrumb"><a href="../index.html">Trang chủ</a><span>/</span><span>Câu chuyện thương hiệu</span></div>
-      <h1>Tinh hoa thiên nhiên Việt, <em>chạm chuẩn sắc đẹp hiện đại.</em></h1>
-      <p>Từ xưởng xà phòng nhỏ ở Sài Gòn năm 1957 đến Thorakao+ hôm nay — câu chuyện thật của Lan Hảo, nền móng mà thương hiệu được xây trên đó.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap founder-grid">
-      <div class="founder-visual reveal">
-        <img src="../assets/images/about/founder-lan-hao.jpg" alt="Chân dung bà Hà Thị Lan Hảo, người sáng lập Thorakao" loading="lazy">
-      </div>
-      <div class="founder-copy reveal reveal-d2">
-        <div class="eyebrow">Người sáng lập</div>
-        <h2 class="section-title">Hà Thị Lan Hảo</h2>
-        <p class="founder-quote">"Tho" là thiên thần, "Kao" là kem — dùng kem sẽ tỏa sáng như thiên thần.</p>
-        <p>Cuối thập niên 1950, bà Lan Hảo học công thức xà phòng và dầu gội từ những phụ nữ cùng cộng đồng. Bà bắt đầu nấu thủ công tại nhà, dùng nguyên liệu quen thuộc với người miền Nam: nghệ, bồ kết, hoa bưởi, sả.</p>
-        <p>Đến 1961, bà Hà Thị Lan Hảo đã tiên phong nghiên cứu và cho ra đời kem dưỡng da trân châu, đưa Thorakao lên vị trí gần như độc tôn ở miền Nam suốt thập niên 60–70.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="ingredient-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2 class="section-title">Bốn <em>chương</em> đã qua.</h2>
-        <p class="section-note">Mỗi mốc thời gian là một quyết định định hình cách Thorakao vận hành đến ngày nay.</p>
-      </div>
-      <div class="timeline">
-        <div class="t-item reveal">
-          <span class="t-dot"></span>
-          <div class="t-year">1957</div>
-          <h3 class="t-title">Xưởng nhỏ của bà Lan Hảo</h3>
-          <p class="t-body">Hà Thị Lan Hảo mở xưởng chế biến xà phòng thơm, dầu gội và dầu dưỡng tóc thủ công tại Sài Gòn, phục vụ trước tiên cho hàng xóm và người quen.</p>
-        </div>
-        <div class="t-item reveal">
-          <span class="t-dot"></span>
-          <div class="t-year">1961</div>
-          <h3 class="t-title">Tên gọi Thorakao ra đời</h3>
-          <p class="t-body">Xưởng trở thành công ty. Kem dưỡng da trân châu được cấp bằng sáng chế và làm nên tên tuổi thương hiệu, mở đầu cho một chuỗi sản phẩm mang bản sắc riêng.</p>
-        </div>
-        <div class="t-item reveal">
-          <span class="t-dot"></span>
-          <div class="t-year">1969</div>
-          <h3 class="t-title">Sáu chi nhánh, một thị trường ngoài nước</h3>
-          <p class="t-body">Thorakao mở chi nhánh tại Campuchia, chiếm phần lớn thị phần mỹ phẩm nội địa thời kỳ đỉnh cao, với dây chuyền sản xuất mở rộng khắp miền Nam.</p>
-        </div>
-        <div class="t-item reveal">
-          <span class="t-dot"></span>
-          <div class="t-year">2026</div>
-          <h3 class="t-title">Thorakao<strong>+</strong> khởi động</h3>
-          <p class="t-body">Cùng công thức bản địa, đóng gói và trải nghiệm mua sắm mới — cho một thế hệ khách hàng lớn lên cùng thương hiệu, nay tìm lại nó theo một cách khác.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="center-head reveal">
-        <h2 class="section-title">Tại sao lại có <em>Thorakao+</em>?</h2>
-      </div>
-      <div class="post-body" style="padding-top:0; padding-bottom:0;">
-        <p>Thorakao gốc vẫn đang hoạt động — nhưng phần lớn khách hàng trẻ biết đến thương hiệu qua ký ức của bố mẹ hơn là qua kệ hàng thật. Thorakao+ ra đời để đóng gói lại chính những công thức đó: giữ nguyên nghệ, hoa bưởi, bồ kết, sả — chỉ đổi kết cấu, bao bì và cách mua.</p>
-        <p>Không phải một thương hiệu mới cố gắng vay mượn câu chuyện cũ, mà là một nhánh chính thức, minh bạch về nguồn gốc, và rõ ràng về việc mình đang làm gì: mang một di sản 67 năm đến gần hơn với cách mua sắm hôm nay.</p>
-        <a href="./gia-tri-cot-loi.html" class="btn btn-ghost">Xem giá trị cốt lõi →</a>
-      </div>
-    </div>
-  </section>
-</main> -->
 <main id="top" class="article-page">
   <section class="article-hero">
     <div class="wrap">
@@ -150,7 +209,7 @@
 
   <section class="story-zigzag-section">
     <div class="wrap">
-      <div class="section-head reveal" style="margin-bottom:36px;">
+      <div class="section-head reveal" style="margin-bottom:36px; text-align:center;">
         <div class="article-eyebrow">Our Story</div>
         <h2 class="section-title">Hơn 60 năm cùng <em>vẻ đẹp Việt.</em></h2>
       </div>
@@ -158,7 +217,7 @@
 
         <div class="story-row">
           <div class="story-media">
-            <img src="./news-img/hinh-thorakao-1957.png" alt="Cửa hàng Thorakao" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+            <img src="./news-img/hinh-thorakao-1957.png" alt="Cửa hàng Thorakao" loading="lazy">
           </div>
           <div class="story-text">
             <h3>Khởi nguồn</h3>
@@ -177,7 +236,7 @@
 
         <div class="story-row">
           <div class="story-media">
-            <img src="#" alt="Nhà máy" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+            <img src="#" alt="Nhà máy" loading="lazy">
           </div>
           <div class="story-text">
             <h3>Đổi mới &amp; Công nghệ</h3>
@@ -187,7 +246,7 @@
 
         <div class="story-row">
           <div class="story-media">
-            <img src="./news-img/hinh-xuat-khau-1993.png" alt="Cửa hàng Thorakao" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+            <img src="./news-img/hinh-xuat-khau-1993.png" alt="Cửa hàng Thorakao" loading="lazy">
           </div>
           <div class="story-text">
             <h3>Vươn ra thế giới</h3>
@@ -208,14 +267,7 @@
 
       <div class="fig">
         <div class="fig-media">
-          <svg viewBox="0 0 300 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="150" cy="85" r="58" stroke="#355872" stroke-width="1"/>
-            <circle cx="150" cy="85" r="46" stroke="#9CD5FF" stroke-width="1" stroke-dasharray="2 3"/>
-            <text x="150" y="66" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="15" fill="#355872">THO</text>
-            <text x="150" y="92" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="15" fill="#7AAACE">RA</text>
-            <text x="150" y="118" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="15" fill="#9CD5FF">KAO</text>
-            <text x="150" y="150" text-anchor="middle" font-family="Space Mono, monospace" font-size="7.5" fill="#4E7189">THIÊN THẦN · RẠNG RỠ · KEM DƯỠNG</text>
-          </svg>
+          <img src="./news-img/nguon-goc-ten-goi-thorakao.png" alt="Nguồn gốc tên gọi Thorakao" loading="lazy">
         </div>
         <div class="fig-caption">
           <div class="fig-label">Fig. 1 — Nguồn gốc tên gọi "Thorakao"</div>
@@ -226,22 +278,10 @@
       <h2>Nền tảng khoa học, không chỉ <em>kinh nghiệm dân gian.</em></h2>
 
       <p>Khác biệt với các đối thủ cùng thời, Thorakao không chỉ dựa vào kinh nghiệm dân gian mà sớm chú trọng vào nền tảng khoa học thực nghiệm. Minh chứng cho năng lực này chính là bằng sáng chế đầu tiên được cấp vào năm 1968, khẳng định vị thế dẫn đầu trong việc nghiên cứu và chế tạo sản phẩm mới tại Việt Nam.</p>
-
-      <!-- <div class="fig">
-        <div class="fig-media">
-          <svg viewBox="0 0 300 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="20" y="20" width="260" height="130" fill="#F7F8F0" stroke="#355872" stroke-width="1.2"/>
-            <rect x="34" y="34" width="232" height="1" fill="#355872" opacity=".3"/>
-            <circle cx="230" cy="110" r="34" stroke="#7AAACE" stroke-width="1.4" stroke-dasharray="3 3"/>
-            <text x="230" y="106" text-anchor="middle" font-family="Space Mono, monospace" font-size="9" fill="#7AAACE">BẰNG SÁNG CHẾ</text>
-            <text x="230" y="118" text-anchor="middle" font-family="Space Mono, monospace" font-size="7.5" fill="#7AAACE">CẤP NĂM 1968</text>
-            <text x="46" y="60" font-family="Fraunces, serif" font-weight="600" font-size="16" fill="#355872">NGHIÊN CỨU &amp; CHẾ TẠO</text>
-            <text x="46" y="80" font-family="Space Mono, monospace" font-size="8.5" fill="#4E7189">CÔNG TY LAN HẢO</text>
-            <text x="46" y="94" font-family="Space Mono, monospace" font-size="8.5" fill="#4E7189">SẢN PHẨM MỚI · VIỆT NAM</text>
-          </svg>
-        </div> -->
-       <div class="story-media">
-            <img src="./news-img/bang-sang-che-dau-tien-cap-nam-1968.png" alt="Bằng sáng chế" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+      
+      <div class="fig">
+       <div class="fig-media">
+            <img src="./news-img/bang-sang-che-dau-tien-cap-nam-1968.png" alt="Bằng sáng chế" loading="lazy">
         </div>
         <div class="fig-caption">
           <div class="fig-label">Bằng sáng chế đầu tiên, 1968</div>
@@ -293,20 +333,17 @@
       <div class="foot-col">
         <h4>Mua sắm</h4>
         <ul>
-          <li><a href="../shop/tat-ca-san-pham.html">Tất cả sản phẩm</a></li>
-          <li><a href="../shop/cham-soc-da.html">Dưỡng da</a></li>
-          <li><a href="../shop/cham-soc-toc.html">Chăm sóc tóc</a></li>
-          <li><a href="../shop/cham-soc-co-the.html">Chăm sóc cơ thể</a></li>
-          <li><a href="../shop/bo-san-pham.html">Bộ sản phẩm</a></li>
+          <li><a href="../tat-ca-san-pham.html">Tất cả sản phẩm</a></li>
+          <li><a href="../cham-soc-da.html">Dưỡng da</a></li>
+          <li><a href="../cham-soc-toc.html">Chăm sóc tóc</a></li>
+          <li><a href="../cham-soc-co-the.html">Chăm sóc cơ thể</a></li>
+          <li><a href="../bo-san-pham.html">Bộ sản phẩm</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h4>Thương hiệu</h4>
         <ul>
-          <li><a href="../about/cau-chuyen-thuong-hieu.html">Câu chuyện 1957</a></li>
-          <!-- <li><a href="../about/gia-tri-cot-loi.html">Giá trị cốt lõi</a></li> -->
-          <!-- <li><a href="../about/chung-nhan.html">Chứng nhận</a></li> -->
-          <!-- <li><a href="../journal/thanh-phan.html">Nguyên liệu</a></li> -->
+          <li><a href="../cau-chuyen-thuong-hieu.html">Câu chuyện 1957</a></li>
         </ul>
       </div>
       <div class="foot-col">
