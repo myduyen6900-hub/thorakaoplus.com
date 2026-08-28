@@ -676,7 +676,7 @@
 /* =========================================================================
    ARTICLE PAGE — long-form brand story (cau-chuyen-thuong-hieu.html)
    ========================================================================= */
-.article-page .breadcrumb{color:var(--ink-soft);}
+/* .article-page .breadcrumb{color:var(--ink-soft);}
 .article-page .breadcrumb a{border-bottom:1px solid var(--line); color:inherit;}
 .article-page .breadcrumb a:hover{color:var(--betel); border-color:var(--betel);}
 
@@ -754,15 +754,11 @@ h1.article-h em{font-style:italic; font-weight:500; color:var(--betel);}
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* .hero-product-image {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    display: block;
 } */
 
+/* =========================================================================
+   THE PICTURE FOR REPLACING THE CIRCLE DRAW BY AI
+   ========================================================================= */
 .hero-product-image {
     width: min(100%, 520px);
     height: auto;
